@@ -35,16 +35,11 @@ Nothing depends on one person remembering how it works, or on us being around to
 ## Where our own site lives.
 
 ```mermaid
-flowchart LR
-  repo["The repository"]
-  ci["GitHub Actions<br>builds, tests and deploys"]
-  edge["Cloudflare Workers<br>the sheets as flat files,<br>and three small Workers"]
-  tf["cf-tf<br>the DNS and the edge,<br>as Terraform"]
-  reader(["bath.limited"])
-  repo -- "every push to main,<br>and once a day" --> ci
-  ci -- "wrangler deploy" --> edge
-  tf -- "terraform apply" --> edge
-  edge --> reader
+flowchart TB
+  repo["The repository"] -- "every push to main,<br>and once a day" --> ci["GitHub Actions<br>builds, tests and deploys"]
+  ci -- "wrangler deploy" --> edge["Cloudflare Workers<br>the sheets as flat files,<br>and three small Workers"]
+  tf["cf-tf<br>the DNS and the edge,<br>as Terraform"] -- "terraform apply" --> edge
+  edge --> reader(["bath.limited"])
 ```
 
 A client’s site is set out the same way, in a repository with a deploy of its own, and the lot goes to them at the end of the job.

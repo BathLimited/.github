@@ -1,0 +1,14 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bath Limited",
+        "address": "214 High Street, Batheaston, Bath BA1 7QZ",
+        "note": "The registered office, where the DNS LOC record of bath.limited puts it."
+      },
+      "geometry": { "type": "Point", "coordinates": [-2.3234, 51.4045] }
+    }
+  ]
+}
